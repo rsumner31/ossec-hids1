@@ -82,7 +82,7 @@ who helped us since our first release (0.1).
   - Danny Fullerton
   - Jeremy Hanmer
   - Pepe Sanz
-  - Kat Fitzgerald
+<  - Kat Fitzgerald
   - Regis Houssin
   - carlopmart
   - Ash Kumar
@@ -98,7 +98,15 @@ who helped us since our first release (0.1).
   - aalberdi <aalberdi@indra.es>
 
 
--Translations
+>>>>>>>+master
+======
+   - Kat
+  - cgzones
+  - Regis Houssin
+  
+  
+>>>>>>>-0d213d6
+Translations
 
   -Dutch:
   - Martijn de Boer <martijn@oceanius.com>
