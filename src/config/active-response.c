@@ -16,7 +16,6 @@
 #include "os_xml/os_xml.h"
 #include "os_regex/os_regex.h"
 #include "active-response.h"
-#include "config.h"
 
 /* Global variables */
 int ar_flag = 0;

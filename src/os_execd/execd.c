@@ -245,6 +245,7 @@ static void ExecdStart(int q)
     while (1) {
         int timeout_value;
         int added_before = 0;
+    
         char **timeout_args;
         timeout_data *timeout_entry;
 
@@ -326,6 +327,18 @@ static void ExecdStart(int q)
 
         /* Get application name */
         name = buffer;
+        
+        
+        /* Getting any extra data to be sent via stdin.
+         * This value is not passed to the timeout command.
+         */
+        extra_data = strchr(buffer, '\n');
+        if(extra_data)
+        {
+            *extra_data = '\0';
+            extra_data++;
+        }
+
 
         /* Zero the name */
         tmp_msg = strchr(buffer, ' ');
@@ -384,6 +397,7 @@ static void ExecdStart(int q)
 
             i++;
         }
+        
 
         /* Check if this command was already executed */
         timeout_node = OSList_GetFirstNode(timeout_list);
@@ -445,6 +459,7 @@ static void ExecdStart(int q)
             /* Continue with the next entry in timeout list*/
             timeout_node = OSList_GetNextNode(timeout_list);
         }
+
 
         /* If it wasn't added before, do it now */
         if (!added_before) {

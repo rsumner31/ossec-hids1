@@ -10,6 +10,7 @@
 #ifndef _AR__H
 #define _AR__H
 
+#include "config/config.h"
 #include "config/active-response.h"
 #include "config/config.h"
 #include "list_op.h"

@@ -60,6 +60,7 @@
 #include <dirent.h>
 #include <ctype.h>
 #include <signal.h>
+#include <glob.h>
 
 /* The mingw32 builder used by travis.ci can't find glob.h 
  * Yet glob must work on actual win32.  
