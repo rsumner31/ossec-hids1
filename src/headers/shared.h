@@ -60,6 +60,7 @@
 #include <dirent.h>
 #include <ctype.h>
 #include <signal.h>
+#include <glob.h>
 
 /* the mingw32 builder used by travis.ci can't find glob.h */
 #ifndef __MINGW32__ 

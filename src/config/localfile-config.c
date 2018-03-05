@@ -398,6 +398,48 @@ int Read_Localfile(XML_NODE node, void *d1, __attribute__((unused)) void *d2)
         }
     }
 
+    /* Validating glob entries */
+    if(glob_set)
+    {
+        char *format;
+        
+        /* Getting log format */
+        if(logf[pl].logformat)
+        {
+            format = logf[pl].logformat;
+        }
+        else if(logf[glob_set].logformat)
+        {
+            format = logf[glob_set].logformat;
+        }
+        else
+        {
+            merror(MISS_LOG_FORMAT, ARGV0);
+            return(OS_INVALID);
+        }
+
+        /* The last entry is always null on glob */
+        pl--;
+
+
+        /* Setting format for all entries */
+        for(i = glob_set; i<= pl; i++)
+        {
+            /* Every entry must be valid */
+            if(!logf[i].file)
+            {
+                merror(MISS_FILE, ARGV0);
+                return(OS_INVALID);
+            }
+            
+            if(logf[i].logformat == NULL)
+            {
+                logf[i].logformat = format;
+            }
+
+        }
+    }
+
     /* Missing log format */
     if (!logf[pl].logformat) {
         merror(MISS_LOG_FORMAT, __local_name);
